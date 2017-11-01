@@ -3,17 +3,20 @@
         static public function createTable($inputArray) {
             $table = htmlTags::tableHead('displayTable');
             foreach ($inputArray as $key => $line) {
-                foreach ($line as $columns => $value) {
+                if ($key == 0) {
                     $table .= htmlTags::tableLineStart();
-                    if ($key == 0) {
-                        $table .= htmlTags::tableTitle($value);
-                    } else {
-                        $table .= htmlTags::tableDetail($value);
+                    foreach ($line as $columns => $value) {
+                        $table .= htmlTags::tableTitle($columns);
                     }
-                    $table .= htmlTags::tableLineEnd();
+                    $table .= htmlTags::tableLineStart();
                 }
+                $table .= htmlTags::tableLineStart();
+                foreach ($line as $columns => $value) {
+                    $table .= htmlTags::tableDetail($value);
+                }
+                $table .= htmlTags::tableLineEnd();
             }
-            $table = htmlTags::tableEnd();
+            $table .= htmlTags::tableEnd();
             return $table;
         }
 }
