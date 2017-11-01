@@ -9,7 +9,7 @@
                 self::$db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
             }
             catch (PDOException $e) {
-                 self::$results['error'] .= htmlTags::changeRow("Connection Error: " . $e->getMessage());
+                 echo htmlTags::changeRow("Connection Error: " . $e->getMessage());
             }
         }
 
@@ -17,8 +17,7 @@
             if (!self::$db) {
                 new dbConn();
             }
-            self::$results['connection'] = self::$db;
-            return self::$results;
+            return self::$db;
         }
     }
 ?>
