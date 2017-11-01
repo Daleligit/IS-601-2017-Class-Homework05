@@ -1,9 +1,10 @@
 <?php
     class collection {
         static public function homeworkSearch() {
-            global $errorMas;
+            global $connErr;
+            global $sqlErr;
             $db = dbConn::getConnection();
-            if (empty($errorMas)) {
+            if (empty($connErr)) {
                 $tableName = get_called_class();
                 $sql = 'SELECT * FROM ' . $tableName . ' WHERE id < 6';
                 try {
@@ -13,7 +14,7 @@
                     $statement->setFetchMode(PDO::FETCH_CLASS, $class);
                     $recordsSet = $statement->fetchAll();
                 } catch (PDOException $e){
-                    $errorMas .= htmlTags::changeRow('SQL query error: ' . $e->getMessage());
+                    $sqlErr .= htmlTags::changeRow('SQL query error: ' . $e->getMessage());
                 }
                 return $recordsSet;
             }

@@ -3,13 +3,13 @@
         protected static $db;
 
         private function __construct() {
-            global $errorMas;
+            global $connErr;
             try {
                 self::$db = new PDO( 'mysql:host=' . CONNECTION .';dbname=' . DATABASE, USERNAME, PASSWORD );
                 self::$db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
             }
             catch (PDOException $e) {
-                $errorMas .= htmlTags::changeRow("Connection Error: " . $e->getMessage());
+                $connErr .= htmlTags::changeRow("Connection Error: " . $e->getMessage());
             }
         }
 
