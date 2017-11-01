@@ -14,5 +14,6 @@
     define('USERNAME', 'yl622');
     define('PASSWORD', 'evPkHDGVf');
     define('CONNECTION', 'sql2.njit.edu');
+    $errorMas = "";
     $obj = new main();
 ?>
