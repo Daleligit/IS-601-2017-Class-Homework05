@@ -10,5 +10,9 @@
     }
     //register all loaded classes
     spl_autoload_register(array('Manage', 'autoload'));
+    define('DATABASE', 'yl622');
+    define('USERNAME', 'yl622');
+    define('PASSWORD', 'evPkHDGVf');
+    define('CONNECTION', 'sql2.njit.edu');
     $obj = new main();
 ?>
