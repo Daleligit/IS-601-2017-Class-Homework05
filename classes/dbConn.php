@@ -17,8 +17,7 @@
             if (!self::$db) {
                 new dbConn();
             }
-            $results = self::$db;
-            return $results;
+            return self::$db;
         }
     }
 ?>
