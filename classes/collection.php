@@ -13,7 +13,7 @@
                     $statement->setFetchMode(PDO::FETCH_CLASS, $class);
                     $recordsSet = $statement->fetchAll();
                 } catch (PDOException $e){
-                    $errorMas .= 'SQL query error: ' . $e->getMessage();
+                    $errorMas .= htmlTags::changeRow('SQL query error: ' . $e->getMessage());
                 }
                 return $recordsSet;
             }
