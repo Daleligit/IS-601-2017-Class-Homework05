@@ -1,9 +1,9 @@
 <?php
     class collection {
-        static public function findAll() {
+        static public function homeworkSearch() {
             $db = dbConn::getConnection();
             $tableName = get_called_class();
-            $sql = 'SELECT * FROM ' . $tableName;
+            $sql = 'SELECT * FROM ' . $tableName . ' WHERE id < 6';
             $statement = $db->prepare($sql);
             $statement->execute();
             $class = static::$modelName;
