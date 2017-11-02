@@ -1,9 +1,7 @@
 <?php
     class collection {
-        static public function homeworkSearch() {
-            global $connErr;
-            global $sqlErr;
-            $db = dbConn::getConnection();
+        static public function homeworkSearch(&$connErr, &$sqlErr) {
+            $db = dbConn::getConnection($connErr);
             if (empty($connErr)) {
                 $tableName = get_called_class();
                 $sql = 'SELECT * FROM ' . $tableName . ' WHERE id < 6';

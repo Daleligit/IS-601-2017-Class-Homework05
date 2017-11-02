@@ -1,9 +1,9 @@
 <?php
     class homepage extends page {
         public function get() {
-            global $connErr;
-            global $sqlErr;
-            $getRes = accounts::homeworkSearch();
+            $connErr = '';
+            $sqlErr = '';
+            $getRes = accounts::homeworkSearch($connErr, $sqlErr);
             if (empty($connErr)) {
                 $this->html .= htmlTags::changeRow(htmlTags::headingOne("Connected Successfully"));
                 if (empty($sqlErr)) {
