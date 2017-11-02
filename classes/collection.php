@@ -1,10 +1,10 @@
 <?php
     class collection {
-        static public function homeworkSearch(&$connErr, &$sqlErr) {
+        static public function find(&$connErr, &$sqlErr, $query) {
             $db = dbConn::getConnection($connErr);
             if (empty($connErr)) {
                 $tableName = get_called_class();
-                $sql = 'SELECT * FROM ' . $tableName . ' WHERE id < 6';
+                $sql = 'SELECT * FROM ' . $tableName . ' WHERE ' . $query;
                 try {
                     $statement = $db->prepare($sql);
                     $statement->execute();

@@ -17,7 +17,7 @@
             if (!self::$db) {
                 new dbConn();
             }
-            $connErr .=  self::$errMas  ;
+            $connErr .=  self::$errMas;
             return self::$db;
         }
     }

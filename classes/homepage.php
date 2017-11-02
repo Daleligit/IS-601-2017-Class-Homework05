@@ -3,7 +3,7 @@
         public function get() {
             $connErr = '';
             $sqlErr = '';
-            $getRes = accounts::homeworkSearch($connErr, $sqlErr);
+            $getRes = accounts::find($connErr, $sqlErr, 'id < 6');
             if (empty($connErr)) {
                 $this->html .= htmlTags::changeRow(htmlTags::headingOne("Connected Successfully"));
                 if (empty($sqlErr)) {
